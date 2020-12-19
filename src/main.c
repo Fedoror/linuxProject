@@ -1,9 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-
-#include "logic.h"
+#include "mainFunctions.h"
 
 
 
@@ -12,16 +7,11 @@
 
 int main() {
     Node* head = NULL;
-
-    Record record;
-    strcpy(record.student, "cdc");
-    strcpy(record.work, "cdc");
-    strcpy(record.mark, "cdc");
-    strcpy(record.date, "cdc");
-    strcpy(record.variant, "cdc");
-    strcpy(record.level, "cdc");
-    push(&head, record);
-    
-
-    mainloop(head);
+    Expense expense;
+    strcpy(expense.product, "Product");
+    strcpy(expense.price, "13");
+    strcpy(expense.quantity, "10");
+    strcpy(expense.date, "22-22-2222");
+    push(&head, expense);
+    run(head);
 }

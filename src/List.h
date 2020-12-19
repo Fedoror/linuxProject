@@ -1,17 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-#include "Record.h"
+#include "Expense.h"
 
 
 typedef struct Node {
-    Record value;
+    Expense value;
     struct Node *next;
 } Node;
 
 
-void push(Node **head, Record data) { /
+void push(Node **head, Expense data) { 
     Node *tmp = (Node*) malloc(sizeof(Node));
     tmp->value = data;
     tmp->next = (*head);
@@ -52,7 +51,7 @@ Node* getLast(Node *head) {
 }
 
 
-void pushBack(Node *head, Record value) { 
+void pushBack(Node *head, Expense value) { 
     Node *last = getLast(head);
     Node *tmp = (Node*) malloc(sizeof(Node));
     tmp->value = value;
@@ -99,7 +98,7 @@ void popBack(Node **head) {
 }
 
 
-void insert(Node *head, unsigned n, Record val) { 
+void insert(Node *head, unsigned n, Expense val) { 
     unsigned i = 0;
     Node *tmp = NULL;
     while (i < n && head->next) {
@@ -132,7 +131,7 @@ void deleteNth(Node **head, int n) {
 
 
 
-int Count(const Node *head){
+int count(const Node *head){
 	int counter = 0;
     while (head) {
     	counter++;
@@ -141,11 +140,13 @@ int Count(const Node *head){
     return counter;
 }
 
+
 void printList(const Node *head) {
 	int counter = 0;
     while (head) {
     	counter++;
-        printf("%i: %s | %s | %s | %s | %s | %s\n", counter, head->value.work, head->value.student, head->value.variant, head->value.level, head->value.date, head->value.mark); 
+        if (counter > 1)
+            printf("%i; Product: %s,  Price: %s,  Quantity: %s,  Date: %s\n", counter - 1, head->value.product, head->value.price, head->value.quantity, head->value.date); 
         head = head->next;
     }
     printf("\n");
