@@ -6,3 +6,9 @@ typedef struct Expense {
     char quantity[10];
     char date[20];
 } Expense;
+
+
+typedef struct Node {
+    Expense value;
+    struct Node *next;
+} Node;

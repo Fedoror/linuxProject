@@ -1,10 +1,6 @@
 #include "mainFunctions.h"
 
 
-
-
-
-
 int main() {
     Node* head = NULL;
     Expense expense;

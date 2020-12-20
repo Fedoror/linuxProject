@@ -1,13 +1,9 @@
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "Expense.h"
-
-
-typedef struct Node {
-    Expense value;
-    struct Node *next;
-} Node;
+#include "Structs.h"
 
 
 void push(Node **head, Expense data) { 
@@ -28,7 +24,6 @@ void pop(Node **head) {
     free(prev);
 }
 
-
 Node* getNth(Node* head, int n) { 
     int counter = 0;
     while (counter < n && head) {
@@ -37,8 +32,6 @@ Node* getNth(Node* head, int n) {
     }
     return head;
 }
-
-
 
 Node* getLast(Node *head) { 
     if (head == NULL) {
@@ -50,7 +43,6 @@ Node* getLast(Node *head) {
     return head;
 }
 
-
 void pushBack(Node *head, Expense value) { 
     Node *last = getLast(head);
     Node *tmp = (Node*) malloc(sizeof(Node));
@@ -58,7 +50,6 @@ void pushBack(Node *head, Expense value) {
     tmp->next = NULL;
     last->next = tmp;
 }
-
 
 Node* getLastButOne(Node* head) { 
     if (head == NULL) {
@@ -71,10 +62,7 @@ Node* getLastButOne(Node* head) {
         head = head->next;
     }
     return head;
-}		
-
-
-
+}       
 
 void popBack(Node **head) { 
     Node *lastbn = NULL;
@@ -97,7 +85,6 @@ void popBack(Node **head) {
     }
 }
 
-
 void insert(Node *head, unsigned n, Expense val) { 
     unsigned i = 0;
     Node *tmp = NULL;
@@ -116,7 +103,6 @@ void insert(Node *head, unsigned n, Expense val) {
     head->next = tmp;
 }
 
-
 void deleteNth(Node **head, int n) { 
     if (n == 0) {
         return pop(head);
@@ -130,21 +116,19 @@ void deleteNth(Node **head, int n) {
 }
 
 
-
 int count(const Node *head){
-	int counter = 0;
+    int counter = 0;
     while (head) {
-    	counter++;
+        counter++;
         head = head->next;
     }
     return counter;
 }
 
-
 void printList(const Node *head) {
-	int counter = 0;
+    int counter = 0;
     while (head) {
-    	counter++;
+        counter++;
         if (counter > 1)
             printf("%i; Product: %s,  Price: %s,  Quantity: %s,  Date: %s\n", counter - 1, head->value.product, head->value.price, head->value.quantity, head->value.date); 
         head = head->next;
