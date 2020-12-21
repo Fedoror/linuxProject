@@ -2,7 +2,7 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.69])
-AC_INIT([linuxProject], [0.01], [vvdsfd@gmail.ru])
+AC_INIT([fedotovDataBase], [0.01], [bugs@fedotos.ru])
 AM_INIT_AUTOMAKE([foreign -Wall -Werror])
 AC_CONFIG_SRCDIR([Unity/examples/unity_config.h])
 AC_CONFIG_HEADERS([config.h])
@@ -12,6 +12,10 @@ AC_PROG_AWK
 AC_PROG_CC
 
 # Checks for libraries.
+# FIXME: Replace `main' with a function in `-lList':
+AC_CHECK_LIB([List], [main])
+# FIXME: Replace `main' with a function in `-lmainFunctions':
+AC_CHECK_LIB([mainFunctions], [main])
 
 # Checks for header files.
 AC_CHECK_HEADERS([limits.h stddef.h stdint.h stdlib.h string.h])
